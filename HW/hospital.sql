@@ -1,0 +1,281 @@
+CREATE TABLE DRUGS( 
+    DRUG_ID NUMBER PRIMARY KEY, 
+    DRUG_NAME VARCHAR(200) NOT NULL 
+); 
+INSERT INTO DRUGS VALUES(1, 'Metmphetamine'); 
+INSERT INTO DRUGS VALUES(2, 'Vicodin'); 
+INSERT INTO DRUGS VALUES(3, 'Synthroid'); 
+INSERT INTO DRUGS VALUES(4, 'Isavuconazonium Sulfate'); 
+INSERT INTO DRUGS VALUES(5, 'Amoxil'); 
+INSERT INTO DRUGS VALUES(6, 'Neurontin'); 
+INSERT INTO DRUGS VALUES(7, 'Prinivil'); 
+INSERT INTO DRUGS VALUES(8, 'Sodium Glucose CoTransporter 2 Inhibitors'); 
+INSERT INTO DRUGS VALUES(9, 'Glucphage'); 
+INSERT INTO DRUGS VALUES(10, 'Talimogene Laherparepvec'); 
+SELECT * FROM DRUGS;
+
+
+CREATE TABLE INSURENCE_TYPES( 
+
+    TYPE_ID NUMBER PRIMARY KEY, 
+
+    TYPE_NAME VARCHAR(200) NOT NULL, 
+
+    DISCOUNT_PERCENTAGE NUMBER NOT NULL 
+
+); 
+
+ALTER TABLE INSURENCE_TYPES ADD PERC2 NUMBER GENERATED ALWAYS AS (DISCOUNT_PERCENTAGE * 2) VIRTUAL;
+
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(1, 'Job', 10);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(2, 'Car', 4);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(3, 'Plane', 24);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(4, 'House', 19);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(5, 'Life', 13);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(6, 'Mental Health', 8);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(7, 'Tank', 7);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(8, 'Cat', 22);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(9, 'Book', 35);
+INSERT INTO INSURENCE_TYPES(TYPE_ID, TYPE_NAME, DISCOUNT_PERCENTAGE) VALUES(10, 'Apartment', 16);
+
+SELECT * FROM INSURENCE_TYPES;
+
+CREATE TABLE PATIENTS(
+    PATIENT_ID NUMBER PRIMARY KEY,  
+    NAME VARCHAR(200) NOT NULL,  
+    PHONE NUMBER UNIQUE,  
+    EMAIL VARCHAR(200) UNIQUE,  
+    ADDRESS VARCHAR(200) UNIQUE 
+); 
+
+SELECT * FROM PATIENTS;
+
+ALTER TABLE patients
+    ADD CONSTRAINT email_check CHECK (EMAIL LIKE '%_@__%.__%'); 
+ALTER TABLE patients 
+    ADD CONSTRAINT phone_length CHECK (LENGTH(PHONE) = 10); 
+
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (1, 'Vincent', 7112659193, 'cpinchasdasdax0@yku.com', '39339 College Road');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (2, 'Vic Vega', 6758447400, 'jasdasf1@weibo.com', '0 Terrace');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (3, 'Joules', 2668550710, 'bfasdsadn2@ow.ly', '7977 Gateway');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (4, 'Butch', 5145318471, 'lzxczxford3@google.es', '1 Nancy');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (5, 'Fabienne', 9662915045, 'jmzxcxvatt4@xing.com', '92 Fallview ');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (6, 'Marsellus Wallace', 4228962694, 'izxvasdfnson5@umich.edu', '45  Terrace');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (7, 'Lawrence', 9680724391, 'bcasdasx@army.mil', '91 5th Trail');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (8, 'Gabriel Garcia Marquez', 1921842228, 'sasdasdbourn7@stanford.edu', '17202 Avenue');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (9, 'Turgut Özakman', 1051318548, 'vdasdast8@google.co.uk', '612 Rigney ');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (10, 'Yukito Kishiro', 8942389273, 'tmefasd9@nymag.com', '53 Trail');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (11, 'Junji ito', 5314296930, 'cpackea@dagondesign.com', '78 Fordem ');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (12, 'Quentin Tarantino', 2789585496, 'havcasfb@digg.com', '34 A Terrace');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (13, 'Tomie', 7368167261, 'nasdsc@sphinn.com', '080 Lofts Plaza');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (14, 'Akira', 9163787395, 'lohasdcolld@live.com', 'Kars Plaza');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (15, 'M.K. Perker', 9382503750, 'nfakofftee@theglobeandmail.com', '952 Gardens Circle');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (16, 'Grigory Petrov', 3701561965, 'aassholerf@prnewswire.com', '0 Court');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (17, 'Fyodor Mihayloviç Dovstoyevski', 3277292039, 'fsasfg@blogs.com', 'Street');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (18, 'Alyoşa', 6695655627, 'cwiawh@about.com', '853 Scofield');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (19, 'Staretz', 4695963336, 'vsaltashi@youtube.com', '59417 Street');
+insert into PATIENTS (PATIENT_ID, NAME, PHONE, EMAIL, ADDRESS ) values (20, 'Raskolnikov', 4245566312, 'mvagagwsekj@lulu.com', 'SAMPLE TEXT');
+
+SELECT * FROM PATIENTS;
+
+
+CREATE TABLE DOCTORS(  
+    DOCTOR_ID NUMBER PRIMARY KEY,  
+    NAME VARCHAR(200) NOT NULL,  
+    PHONE NUMBER UNIQUE,  
+    EMAIL VARCHAR(200) UNIQUE, 
+    ADDRESS VARCHAR(200) UNIQUE 
+);
+
+SELECT * FROM DOCTORS;
+
+ALTER TABLE DOCTORS 
+    ADD CONSTRAINT doctor_email_check CHECK (EMAIL LIKE '%_@__%.__%'); 
+    
+ALTER TABLE DOCTORS
+    ADD CONSTRAINT doctor_phone_length CHECK (LENGTH(PHONE) = 10); 
+
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (1, 'Mia Wallace', 7149231208, 'cnaasfarrow0@weebly.com', '6 Chems Point');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (2, 'Herbert West', 7529243787, 'atias1@buzzfeed.com', '02667 Arkham Asylum');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (3, 'Jeffrey Combs', 6031667064, 'mvasfasfin2@is.gd', '61480 Doge Parkway');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (4, 'Mercy', 5370776302, 'sfosssad@sitemeter.com', '07 Joker Point');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (5, 'Hatçe', 3995919146, 'filasd4@japanpost.jp', '06 Boi Drive');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (6, 'Fernanda', 6315314389, 'abasdn5@jimdo.com', '073  Terrace');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (7, 'Karamazov', 5720574934, 'vhaasdn6@gnu.org', '98 Hemann Terrace');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (8, 'Victor Hugo', 2235512346, 'iasdby7@bloglovin.com', '42069 Skelletor Bay Point');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (9, 'Victor Reznov', 4053235870, 'masdaisner8@usgs.gov', '56086 Deniz Plaza');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (10, 'C. Price', 2244084945, 'tkrasdaan9@dot.gov', '80233 Smooth ass');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (11, 'Abdullah Zengin', 1708512473, 'aaaasdasdima@acquirethisname.com', '5289 Harley Quincy');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (12, 'Anthony Burgess', 8795364215, 'lcasfdburnb@ibm.com', '6 Crescentesz');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (13, 'Howard', 2139030209, 'dpiasdsadc@delicious.com', '50761 Macpasdasdrson Road');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (14, 'Phillips', 8742358913, 'ddiased@walmart.com', '22 Oi Atkins');
+insert into DOCTORS (DOCTOR_ID, NAME, PHONE, EMAIL, ADDRESS ) values (15, 'Lovecraft', 3299498443, 'ghasdese@homestead.com', '96 Listen Up');
+
+
+CREATE TABLE VISITS(
+    VISIT_ID NUMBER PRIMARY KEY,  
+    DOCTOR_ID NUMBER NOT NULL, 
+    PATIENT_ID NUMBER NOT NULL, 
+    TYPE_ID NUMBER NOT NULL, 
+    VISIT_DATE DATE DEFAULT SYSDATE NOT NULL, 
+    VISIT_TIME TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL, 
+    FOREIGN KEY (DOCTOR_ID) 
+        REFERENCES DOCTORS (DOCTOR_ID), 
+    FOREIGN KEY (PATIENT_ID) 
+        REFERENCES PATIENTS (PATIENT_ID) 
+);
+
+SELECT SYSTIMESTAMP FROM DUAL;
+
+SELECT * FROM VISITS;
+
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (1, 10, 10, 8, TO_DATE('17/02/2020', 'dd/mm/yyyy'), TO_TIMESTAMP('2020-01-1 04:20:00', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (2, 1, 10, 6, TO_DATE('31/12/2016', 'dd/mm/yyyy'), TO_TIMESTAMP('2012-12-21 05:14:25', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (3, 8, 2, 9, TO_DATE('2/09/2017', 'dd/mm/yyyy'), TO_TIMESTAMP('2020-11-24 17:34:33', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (4, 2, 9, 7, TO_DATE('10/08/2019', 'dd/mm/yyyy'), TO_TIMESTAMP('2019-06-17 19:01:29', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (5, 1, 2, 9, TO_DATE('10/07/2013', 'dd/mm/yyyy'), TO_TIMESTAMP('2016-03-29 16:25:20', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (6, 5, 6, 5, TO_DATE('22/07/2015', 'dd/mm/yyyy'), TO_TIMESTAMP('2018-07-06 10:12:16', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (7, 8, 3, 6, TO_DATE('20/11/2018', 'dd/mm/yyyy'), TO_TIMESTAMP('2018-01-24 06:55:23', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (8, 4, 5, 3, TO_DATE('02/09/2018', 'dd/mm/yyyy'), TO_TIMESTAMP('2018-07-01 08:40:52', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (9, 10, 8, 10, TO_DATE('29/12/2016', 'dd/mm/yyyy'), TO_TIMESTAMP('2020-02-21 19:18:49', 'YYYY-MM-DD HH24:MI:SS'));
+insert into VISITS (VISIT_ID, DOCTOR_ID, PATIENT_ID, TYPE_ID, VISIT_DATE, VISIT_TIME) values (10, 3, 9, 1, TO_DATE('01/11/2018', 'dd/mm/yyyy'), TO_TIMESTAMP('2018-05-19 11:06:10', 'YYYY-MM-DD HH24:MI:SS'));
+
+
+
+CREATE TABLE COMMENTS(  
+    COMMENT_ID NUMBER PRIMARY KEY,  
+    VISIT_ID NUMBER NOT NULL, 
+    COMMENT_CONTENT VARCHAR(250) NOT NULL, 
+    FOREIGN KEY (VISIT_ID) 
+        REFERENCES VISITS (VISIT_ID) 
+); 
+
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (1, 6, 'Is marijuana legal, asking for a friend.');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (2, 8, 'Came for common flu and lost my freaking kidney this hospital sucks!!');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (3, 9, 'I have a complaint about a doctor called Herbert West he is doing some experiments on cadevras, kinda creepy.');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (4, 5, 'Oi, I am from Autralia me son fell into sun help me, mates!');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (5, 3, 'At my first step to this hospital some dude tried to sell me crystal meth what the hell!?');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (6, 9, 'Takako Mamiyas first and last album which is Love Trip 1982, I mean man try that its simply the BEST! ');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (7, 3, 'Is firing people from their jobs really help the fight against covid?');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (8, 8, 'LEEEEEEEEEEERRRRRRRROOOOOOOOOOOOOOOOOYYYYYYYYYYYY JENKIIIIIIINNNNNSSS!');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (9, 10, 'Tbh I have ran out of ideas at this point');
+insert into COMMENTS (COMMENT_ID, VISIT_ID, COMMENT_CONTENT) values (10, 8, 'SAMPLE TEXT');
+
+SELECT * FROM COMMENTS;
+
+
+CREATE TABLE VISIT_DRUGS( 
+    VISIT_ID NUMBER NOT NULL, 
+    DRUG_ID NUMBER NOT NULL, 
+    VALUE NUMBER NOT NULL,
+    PRIMARY KEY (VISIT_ID, DRUG_ID),
+    FOREIGN KEY(VISIT_ID) REFERENCES VISITS(VISIT_ID),
+    FOREIGN KEY(DRUG_ID) REFERENCES DRUGS(DRUG_ID)
+); 
+
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (8, 1, 91.96);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (4, 5, 8.72);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (2, 8, 66.67);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (10, 6, 45.6);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (3, 5, 7.49);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (9, 9, 97.69);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (4, 10, 18.79);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (1, 5, 4.86);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (7, 4, 57.96);
+insert into VISIT_DRUGS (VISIT_ID, DRUG_ID, VALUE) values (2, 2, 10.43);
+
+SELECT * FROM VISIT_DRUGS;
+
+
+-- Question's answers:
+
+-- Question 1  How many Visits are saved in the database?
+SELECT COUNT(VISIT_ID) FROM VISITS;
+
+-- Qestion 2 Which Drug is most used?
+WITH drug_usage(DRUG_ID, DRUG_USE) as(
+SELECT DRUG_ID, COUNT(VISIT_ID)
+FROM VISIT_DRUGS
+GROUP BY DRUG_ID)
+SELECT *
+FROM drug_usage
+WHERE DRUG_USE = (SELECT MAX(DRUG_USE) FROM drug_usage);
+
+-- Question 3 List the Visits of a Patient with the name James
+SELECT * 
+FROM VISITS
+WHERE PATIENT_ID = (
+    SELECT PATIENT_ID FROM PATIENTS WHERE NAME = 'James'
+)
+
+-- Question 4 List the Visits which have more than 2 comments
+SELECT VISIT_ID, COUNT(COMMENT_ID) AS NO_OF_COMMENTS 
+FROM COMMENTS
+GROUP BY VISIT_ID
+HAVING COUNT(COMMENT_ID) > 2;
+
+-- Question5  List the Drugs with the number of Visits taken at each Drug. 
+WITH DRUG_VISITS(DRUG_ID, NUMBER_OF_VISITS) as(
+SELECT DRUG_ID, COUNT(VISIT_ID)
+FROM VISIT_DRUGS
+GROUP BY DRUG_ID
+)
+SELECT DRUGS.DRUG_ID,  DRUGS.DRUG_NAME, DRUG_VISITS.NUMBER_OF_VISITS 
+FROM
+    DRUGS
+INNER JOIN DRUG_VISITS ON
+    DRUGS.DRUG_ID = DRUG_VISITS.DRUG_ID;
+
+-- Question 6  List the Patients and the number of Visits each patient had.
+SELECT PATIENT_ID, COUNT(VISIT_ID) AS NUMBER_OF_VISITS
+FROM VISITS
+GROUP BY PATIENT_ID;
+
+-- Question 7 List all Visits with Drug names, comments and Insurance names.
+WITH VISITS_DRUG_IDS AS (
+SELECT VISITS.VISIT_ID, VISITS.PATIENT_ID, VISITS.TYPE_ID, VISIT_DRUGS.DRUG_ID FROM VISITS INNER JOIN VISIT_DRUGS ON VISITS.VISIT_ID = VISIT_DRUGS.VISIT_ID)
+SELECT VISITS_DRUG_IDS.VISIT_ID, DRUGS.DRUG_NAME, COMMENTS.COMMENT_CONTENT, INSURENCE_TYPES.TYPE_NAME AS INSURENCE_NAME
+FROM VISITS_DRUG_IDS
+LEFT OUTER JOIN DRUGS ON VISITS_DRUG_IDS.DRUG_ID = DRUGS.DRUG_ID
+LEFT OUTER JOIN COMMENTS ON VISITS_DRUG_IDS.VISIT_ID = COMMENTS.VISIT_ID
+INNER JOIN INSURENCE_TYPES ON VISITS_DRUG_IDS.TYPE_ID = INSURENCE_TYPES.TYPE_ID;
+
+
+-- Quetsion 8 List the Visits which have at least one comment include ‘X_Ray’.
+SELECT UNIQUE(VISITS.VISIT_ID)
+FROM VISITS
+INNER JOIN (SELECT * FROM COMMENTS WHERE COMMENT_CONTENT LIKE '%X_Ray%') COMMENTS ON VISITS.VISIT_ID = COMMENTS.VISIT_ID;
+
+-- LAB-5 Oracle SQL Triggers
+CREATE TABLE VISITS_LOG(
+    OPERATION VARCHAR(50),
+     VISIT_ID NUMBER NOT NULL,  
+    DOCTOR_ID NUMBER NOT NULL, 
+    PATIENT_ID NUMBER NOT NULL, 
+    TYPE_ID NUMBER NOT NULL, 
+    VISIT_DATE DATE DEFAULT SYSDATE NOT NULL, 
+    VISIT_TIME TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL
+);
+
+CREATE OR REPLACE TRIGGER EVAL_CHANGE_TRIGGER
+  BEFORE UPDATE OR DELETE
+  ON VISITS
+FOR EACH ROW
+DECLARE
+  LOG_ACTION  VISITS_LOG.OPERATION%TYPE;
+BEGIN
+  IF UPDATING THEN
+    LOG_ACTION := 'UPDATE';
+  ELSIF DELETING THEN
+    LOG_ACTION := 'DELETE';
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('This code is not reachable.');
+  END IF;
+
+  INSERT INTO VISITS_LOG
+    VALUES (LOG_ACTION, :OLD.VISIT_ID, :OLD.DOCTOR_ID, :OLD.PATIENT_ID, :OLD.TYPE_ID, :OLD.VISIT_DATE, :OLD.VISIT_TIME);
+END;
+
+UPDATE visits SET DOCTOR_ID = 2 WHERE VISIT_ID = 10;
+
+SELECT * FROM VISITS_LOG;
